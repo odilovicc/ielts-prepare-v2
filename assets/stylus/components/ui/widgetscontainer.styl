@@ -1,0 +1,105 @@
+.widgets
+    &-container
+        padding 20px 0
+        display flex
+        gap 1rem
+        flex-wrap wrap
+
+.widget
+    &-container
+        flex 1 2
+        background var(--text-color)
+        padding 20px
+        border-radius 20px
+        width max-content
+        position relative
+        
+    &-icon
+        padding 20px
+        color var(--text-color)
+        background var(--surface-color)
+        border-radius 50px
+        position absolute
+        top -20px
+        right -10px
+        display flex
+        align-items center
+
+    &-title
+        font-size 24px
+        font-weight 600
+        margin-bottom 10px
+    &-link
+        color var(--primary-color)
+
+    &-todo
+        flex 1 1 100%
+        margin-top 20px
+
+        &-wrapper
+            display flex
+            flex-direction column
+            gap 10px
+
+        &-container
+            display flex
+            justify-content space-between
+            align-items center
+        
+        &-description
+            text-overflow: ellipsis ;
+            overflow: hidden ;
+            white-space: nowrap ;
+            width 500px
+
+        &-actions
+            display flex
+            gap 20px
+        
+        &-sorry
+            padding 20px 0
+        
+        &-add
+            padding 5px !important
+            .p-button-icon i
+                font-size 14px !important
+
+        .widget-title
+            display flex
+            gap 10px
+            align-items center
+    
+    &-dictionary
+        margin-top 10px
+        width max-content
+
+        &-input-group
+            display flex
+            width 100%
+            margin-top 10px
+
+            .app-form-input
+                flex 1 !important
+                border-top-right-radius 0
+                border-bottom-right-radius 0
+                border-right 0
+
+            .app-button
+                border-top-left-radius 0
+                border-bottom-left-radius 0
+        
+        &-result
+            padding 20px
+            box-shadow 0 0 10px #ccc
+            border-radius 14px
+
+            &-wrapper
+                display flex
+                gap 10px
+                padding 10px 0
+
+            &-word
+                font-size 18px
+                font-weight 600
+                text-transform capitalize
+                

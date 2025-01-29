@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #1c2e9e;
+    --secondary-color: #4d99dc;
+    --text-color: #fdfdf9;
+    --invalid: red;
+    --surface-color: #32322a;
+
+}
+
+html {
+    color-scheme: dark;
+    background: var(--surface-color)
+}

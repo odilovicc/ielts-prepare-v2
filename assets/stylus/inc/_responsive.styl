@@ -1,0 +1,98 @@
+
+// PLANSHET
+@media (min-width: 768px) and (max-width: 1024px) {
+    .layouts-default-wrapper {
+        flex-direction column-reverse !important
+        padding 0 !important
+    }
+    .mobile-navbar {
+        &-wrapper {
+            margin 0 auto
+            margin-bottom 20px
+        }
+    }
+}
+
+// MOBILE 
+@media (min-width: 320px) and (max-width: 768px) {
+    h1 {
+        font-size 12px !important
+    }
+    p {
+        font-size 10px !important
+    }
+    .mobile-navbar {
+        &-wrapper {
+            width 100% !important
+        }
+        &-link {
+            padding 15px !important
+
+            span {
+                display none
+            }
+        }
+    }
+    .layouts-default {
+        &-wrapper {
+            padding 10px !important
+            flex-direction column-reverse
+            justify-content space-between
+        }
+        &-asidebar {
+            width 100% !important
+            margin 0 auto
+        }
+    }
+
+    .dashboard-header-container {
+        h1 {
+            font-size 14px !important
+        }
+    }
+
+    .app-button .p-button-icon i {
+            font-size 12px !important
+    }
+
+    .widget {
+        &-title {
+            font-size 14px !important
+        }
+        &-description {
+            font-size 12px !important
+        }
+        &-icon i{
+            font-size 15px !important
+        }
+        &-todo {
+            &-description {
+                width 150px !important
+                font-size 12px
+            }
+            &-title {
+                font-size 12px
+            }
+            &-actions {
+                gap 5px !important
+            }
+        } 
+    }
+
+    .reading-material img {
+        width 100px
+    }
+    .reading-container .page-title {
+        font-size 20px !important
+    }
+    .p-editor-toolbar.ql-toolbar.ql-snow, .app-button .p-button-label {
+        font-size: 8px !important
+    }
+    .writing-wrapper .page-description {
+        margin-bottom 20px !important
+    }
+    .layouts-default-asidebar {
+        position sticky
+        bottom 0
+    }
+}
