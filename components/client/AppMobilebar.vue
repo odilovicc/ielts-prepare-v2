@@ -5,6 +5,7 @@
         <AppIcon
           :type="!!el.materialIcon ? 'material' : 'primevue'"
           :icon="el.icon || el.materialIcon"
+          class="mobile-navbar-link-icon"
         />
         <span class="mobile-navbar-link-label">{{ el.tooltip }}</span>
       </nuxt-link>
@@ -13,6 +14,7 @@
       <AppIcon
         type="material"
         icon="home"
+        class="mobile-navbar-link-icon"
       />
     </div>
     <div class="mobile-navbar-right">
@@ -20,6 +22,7 @@
         <AppIcon
           :type="!!el.materialIcon ? 'material' : 'primevue'"
           :icon="el.icon || el.materialIcon"
+          class="mobile-navbar-link-icon"
         />
         <span class="mobile-navbar-link-label">{{ el.tooltip }}</span>
       </nuxt-link>

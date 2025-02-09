@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app-icon">
     <i :class="type === 'primevue' ? `pi pi-${props.icon}` : 'material-symbols-outlined'">{{ type === 'material' ? `${props.icon}` : '' }}</i>
   </div>
 </template>
@@ -12,5 +12,8 @@ const props = defineProps<{
 </script>
 
 <style>
-
+.app-icon {
+  display: flex;
+  align-items: center;
+}
 </style>
