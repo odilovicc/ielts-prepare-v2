@@ -13,8 +13,14 @@
       />
       <app-icon
         :type="iconType"
-        v-if="loading"
+        v-if="loading && iconType === 'primevue'"
         icon="spin pi-spinner"
+        :class="{ 'p-button-icon': true, 'p-button-icon-left': !!label }"
+      />
+      <app-icon
+        :type="iconType"
+        v-else-if="loading && iconType === 'material'"
+        icon="loading"
         :class="{ 'p-button-icon': true, 'p-button-icon-left': !!label }"
       />
       <img

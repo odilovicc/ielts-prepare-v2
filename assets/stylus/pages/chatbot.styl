@@ -1,0 +1,60 @@
+.chatbot {
+    &-page {
+        &-container {
+            .page-title {
+                font-size 1rem
+                color #fff
+            }
+            .page-description {
+                color #fff
+            }
+        }
+    }
+    &-container {
+        background #fff
+        display flex
+        flex-direction column
+        gap 20px
+        margin-top 20px
+    }
+    &-input {
+        &-container {
+            display flex
+            align-items center
+            width 100%
+        }
+        &-input {
+            width 100%
+            border-radius 0 !important
+        }
+        &-button {
+            border-top-left-radius 0 !important
+            border-bottom-left-radius 0 !important
+        }
+    }
+    &-message {
+        &-container {
+            display flex
+            flex-direction column
+            gap 5px
+            padding 20px
+            overflow-y scroll
+            max-height 65vh
+        }
+        &-user, &-ai {
+            width max-content
+            padding 10px
+            border-radius 18px
+        }
+        &-user {
+            background var(--primary-color)
+            margin-left auto
+            text-align right
+            color #fff
+        }
+        &-ai {
+            background var(--secondary-color)
+            max-width 50%    
+        }
+    }
+}
