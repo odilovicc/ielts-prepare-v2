@@ -1,4 +1,3 @@
-
 export interface IAnyObject {
     [key: string]: any
 }
@@ -26,4 +25,10 @@ export interface IAppDialog {
     open: () => void;
     close: () => void;
     clear: () => void;
+}
+
+export interface INotification {
+    title: string,
+    body?: string,
+    severity?: 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast' | undefined;
 }

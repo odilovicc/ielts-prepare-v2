@@ -3,8 +3,7 @@ import { GoogleGenerativeAI as gayAi } from "@google/generative-ai"
 export const useWritingStore = defineStore('writing', () => {
 
     const isLoading = ref<boolean>(false)
-    const runtimeConfig = useRuntimeConfig()
-    const gayAiKey = runtimeConfig.public.GOOGLE_KEY
+    const gayAiKey = "AIzaSyCZIMYm29dRU2WUSm7Q7sZVQJhHu7T57nk"
     const genAi = new gayAi(gayAiKey)
     const model = genAi.getGenerativeModel({ model: "gemini-1.5-flash" });
 

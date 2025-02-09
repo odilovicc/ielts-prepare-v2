@@ -8,7 +8,7 @@
 <script setup lang="ts">
 
 const authStore = useAuthStore()
-
 const {username} = storeToRefs(authStore)
+
 </script>
 <style src="~/assets/stylus/pages/dashboard.styl"></style>
