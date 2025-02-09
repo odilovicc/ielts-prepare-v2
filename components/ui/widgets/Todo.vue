@@ -12,11 +12,10 @@
             <template v-if="incompleteTodos.length > 0">
                 <div class="widget-todo-container" v-for="(el, idx) in incompleteTodos" :key="idx">
                     <h1 class="widget-todo-title">{{ idx + 1 }}. {{ el.title }}</h1>
-                    <p class="widget-todo-description">{{ el.description }}</p>
 
                     <div class="widget-todo-actions">
                         <AppButton class="widget-todo-markdone" icon-type="material" prefix-icon="check"
-                            @click="onMarkTodoAsDone(idx)" />
+                            @click="onMarkTodoAsDone(el)" />
                         <AppButton class="widget-todo-info" icon-type="material" prefix-icon="info"
                             @click="showTodoInfo(el)" />
                         <AppButton class="widget-todo-delete" type="danger" icon-type="material" prefix-icon="delete"
@@ -31,7 +30,7 @@
     </div>
 
     <!-- Диалог для информации о задаче -->
-    <AppDialog :visible="infoDialogVisible" header="Todo Info">
+    <AppDialog ref="infoDialogVisible" :closable="true" header="Todo Info">
         <template #default>
             <p><strong>Title:</strong> {{ selectedTodo?.title }}</p>
             <p><strong>Description:</strong> {{ selectedTodo?.description }}</p>
@@ -65,7 +64,7 @@
   const { userTodos } = storeToRefs(store);
   
   const addTodoDialogVisible = ref(false);
-  const infoDialogVisible = ref(false);
+  const infoDialogVisible = ref();
   const selectedTodo = ref(null);
   const isLoading = ref(false);
   const incompleteTodos = computed(() => {
@@ -107,7 +106,7 @@
   }
   
   function onMarkTodoAsDone(idx: number) {
-    markTodoAsDone(idx).then(() => {
+    deleteTodo(idx).then(() => {
       toast.add({ life: 3000, severity: "success", summary: "Задача завершена!" });
     });
   }
@@ -120,7 +119,7 @@
   
   function showTodoInfo(todo: IAnyObject) {
     selectedTodo.value = todo;
-    infoDialogVisible.value = true;
+    infoDialogVisible.value.open();
   }
   
   onMounted(() => {

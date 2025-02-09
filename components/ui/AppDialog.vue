@@ -9,7 +9,9 @@
 		:closable="closable"
 		v-bind="$attrs"
 		@close="handleClose"
+		class="app-dialog"
 	>
+		<slot name="close" v-bind="{close: handleClose}"></slot>
 		<slot></slot>
 		<Divider class="mb-0" v-if="dividerFooter" />
 		<template #footer v-if="dividerFooter">
@@ -75,3 +77,8 @@ defineExpose<IAppDialog>({
 	testFunc: () => visible.value,
 });
 </script>
+<style>
+.app-dialog {
+	width: 80% !important;
+}
+</style>

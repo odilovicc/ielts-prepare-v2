@@ -38,7 +38,7 @@
 </template>
 <script setup lang="ts">
 const PrimeButton = defineAsyncComponent(() => import("primevue/button"));
-type ButtonType = "primary" | "info" | "success" | "warning" | "danger";
+type ButtonType = "primary" | "info" | "success" | "warning" | "danger" | "icon";
 
 const props = withDefaults(
   defineProps<{

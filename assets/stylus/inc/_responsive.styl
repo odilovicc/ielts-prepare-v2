@@ -15,8 +15,14 @@
 
 // MOBILE 
 @media (min-width: 320px) and (max-width: 768px) {
-    h1, .app-form-field-label, .p-inputtext::placeholder {
+    h1, .app-form-field-label, .p-inputtext::placeholder, .p-dialog-title {
         font-size 12px !important
+    }
+    .p-dialog-header {
+        padding 0 10px !important
+    }
+    .p-dialog-content {
+        padding 10px !important
     }
     p {
         font-size 10px !important
@@ -75,6 +81,10 @@
             }
             &-title {
                 font-size 12px
+                max-width 150px
+                text-overflow ellipsis
+                overflow hidden
+                white-space nowrap
             }
             &-actions {
                 gap 5px !important
