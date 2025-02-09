@@ -25,7 +25,6 @@ export default defineNuxtConfig({
     public: {
       API_URL: process.env.NUXT_API_URL,
       API_KEY: process.env.NUXT_API_KEY,
-      GOOGLE_KEY: process.env.NUXT_GOOGLE_API_KEY
     }
   },
   app: {
