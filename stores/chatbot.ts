@@ -33,7 +33,7 @@ export const useChatbotStore = defineStore('chatbot', () => {
 
         try {
             // Отправляем запрос к Gemini
-            const response = await sendPrompt(`Сделай одолжение при отправке запроса используй html тэги: h1.prompt-title для титулов и просто для жирных текстов, p.prompt-desc для простых текстов прошу: ${message}`);
+            const response = await sendPrompt(`${message}`);
 
             // Сохраняем ответ в кэше
             responseCache.set(message, response);

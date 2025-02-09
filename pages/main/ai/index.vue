@@ -7,6 +7,12 @@
   
       <div class="chatbot-container">
         <div ref="messageContainer" class="chatbot-message-container">
+          <template v-if="chatHistory.length === 0">
+            <div class="chatbot-message-empty">
+                <AppIcon type="material" icon="network_intelligence"/>
+                <h1>Hi! I will help you with any questions. Just ask me!</h1>
+            </div>
+          </template>
           <template v-for="(el, index) in chatHistory" :key="index">
             <template v-if="el.role === 'user'">
               <div class="chatbot-message-user">
