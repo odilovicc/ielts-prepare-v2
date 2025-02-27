@@ -3,15 +3,16 @@
 @tailwind utilities;
 
 :root {
-    --primary-color: #1c2e9e;
-    --secondary-color: #4d99dc;
+    --primary-color: #2d2d2d;
+    --second-primary: #32393d;
+    --secondary-color: #fff;
     --text-color: #fdfdf9;
     --invalid: red;
-    --surface-color: #32322a;
+    --surface-color: #000;
 
 }
 
 html {
     color-scheme: dark;
-    background: var(--surface-color)
+    background: var(--text-color);
 }

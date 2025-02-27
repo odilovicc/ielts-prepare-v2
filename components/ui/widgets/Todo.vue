@@ -4,7 +4,7 @@
         <h1 class="widget-title">
             Todo list
             <AppButton icon-type="material" class="widget-todo-add" type="surface" prefix-icon="add"
-                @click="addTodoDialogVisible = true" />
+                @click="addTodoDialogVisible.open()" />
         </h1>
 
         <div class="widget-todo-wrapper">
@@ -39,7 +39,7 @@
     </AppDialog>
 
     <!-- Диалог для добавления задачи -->
-    <AppDialog :visible="addTodoDialogVisible" header="Add todo">
+    <AppDialog ref="addTodoDialogVisible" header="Add todo">
         <template #default>
             <AppForm :fields="addTodoFields" :submit-action="onAddTodo" ref="addTodoRef" :form-loading="isLoading">
                 <template #footer="{ disabled, submitAction }">
@@ -56,15 +56,15 @@
   
   <script setup lang="ts">
   import { type FormField, FormFieldType, ValidationRuleType } from "~/types/form";
-  import type { IAnyObject } from "~/types/helpers";
+  import { type IAppDialog, type IAnyObject } from "~/types/helpers";
   
   const store = useTodoStore();
   const toast = useToast();
   const { fetchUserTodos, addUserTodo, markTodoAsDone, deleteTodo } = store;
   const { userTodos } = storeToRefs(store);
   
-  const addTodoDialogVisible = ref(false);
-  const infoDialogVisible = ref();
+  const addTodoDialogVisible = ref<IAppDialog>();
+  const infoDialogVisible = ref<IAppDialog>();
   const selectedTodo = ref(null);
   const isLoading = ref(false);
   const incompleteTodos = computed(() => {
@@ -101,7 +101,7 @@
       })
       .finally(() => {
         isLoading.value = false;
-        addTodoDialogVisible.value = false;
+        addTodoDialogVisible.value.close();
       });
   }
   

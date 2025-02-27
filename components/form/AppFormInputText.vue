@@ -30,6 +30,7 @@
         @focus="focused = true"
         @blur="focused = false"
         :disabled="props.disabled"
+        @keyup.enter="$emit('pressEnter')"
       />
     </div>
     <div
@@ -43,7 +44,7 @@
 <script setup lang="ts">
 const PrimeInputText = defineAsyncComponent(() => import("primevue/inputtext"));
 
-const emit = defineEmits(["update:modelValue", "change"]);
+const emit = defineEmits(["update:modelValue", "change", "pressEnter"]);
 const props = defineProps<{
   prefixIcon?: string;
   prefixIconImage?: string;

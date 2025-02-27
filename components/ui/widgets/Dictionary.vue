@@ -6,7 +6,7 @@
 
         <div class="widget-dictionary-input-group">
             <AppFormInputText v-model="searchingWord" placeholder="Search..."/>
-            <AppButton prefix-icon="search" icon-type="material" @click="getWord"/>
+        <AppButton prefix-icon="search" type="surface" icon-type="material" @click="getWord"/>
         </div>
         <div class="widget-dictionary-result-wrapper">
             <div class="widget-dictionary-result" v-for="el in parsedData">

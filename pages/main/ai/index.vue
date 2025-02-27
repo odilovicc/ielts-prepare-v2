@@ -32,6 +32,7 @@
             :disabled="isLoading"
             v-model="userMessage"
             placeholder="Type here..."
+            @press-enter="onSendPrompt"
             class="w-full chatbot-input-input"
           />
           <AppButton

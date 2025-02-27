@@ -14,8 +14,10 @@
         background #fff
         display flex
         flex-direction column
+        justify-content space-between
         gap 20px
         margin-top 20px
+        height: 70vh
     }
     &-input {
         &-container {
@@ -37,6 +39,8 @@
             display flex
             align-items center
             flex-direction column
+            align-items center
+            justify-content center
             .app-icon i {
                 color var(--primary-color)
             }
@@ -51,6 +55,7 @@
             padding 20px
             overflow-y scroll
             max-height 65vh
+            height 100%
         }
         &-user, &-ai {
             width max-content
@@ -64,7 +69,7 @@
             color #fff
         }
         &-ai {
-            background var(--secondary-color)
+            background #bdbdbd
             max-width 50%    
         }
     }

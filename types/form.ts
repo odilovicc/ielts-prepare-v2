@@ -14,9 +14,14 @@ export type FormField<T = IAnyObject> =
     | IPassword<T>
     | INumber<T>;
 
+export interface FormOptions {
+    formType: "column" | "row",
+    hasLabel?: boolean
+}
+
 export interface FormFieldDefault<T, P = Record<string, any>> {
     key: keyof T & string;
-    label: string;
+    label?: string;
     class?: string;
     params?: P; // Поле `params` типизируется в зависимости от поля
     error?: string | null;
@@ -28,8 +33,9 @@ export interface ISelect<T> extends FormFieldDefault<T, SelectParams> {
     options: IOptions[];
 }
 
-export interface IInput<T> extends FormFieldDefault<T, InputParams> {
+export interface IInput<T> extends FormFieldDefault<T> {
     type: FormFieldType.TEXT;
+    label?: string
 }
 
 export interface IPassword<T> extends FormFieldDefault<T, PasswordParams> {
