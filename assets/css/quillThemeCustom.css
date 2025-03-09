@@ -1,0 +1,56 @@
+/* Тёмный фон для всего контейнера редактора */
+.ql-container.ql-snow {
+  background-color: #2D2D2D; /* Тёмно-серый фон, как у твоего сайта */
+  color: #E0E0E0; /* Светло-серый текст для читаемости */
+  border: 1px solid #444 !important; /* Тёмная граница */
+}
+
+/* Тулбар */
+.ql-toolbar.ql-snow {
+  background-color: #1E1E1E; /* Ещё более тёмный фон для тулбара */
+  border: 1px solid #444 !important;
+}
+
+/* Иконки в тулбаре */
+.ql-snow .ql-toolbar button,
+.ql-snow .ql-toolbar .ql-picker-label {
+  color: #E0E0E0 !important; /* Светлые иконки */
+}
+
+.ql-snow .ql-toolbar button:hover,
+.ql-snow .ql-toolbar .ql-picker-label:hover,
+.ql-snow .ql-toolbar button.ql-active {
+  color: #FFD700 !important; /* Золотистый цвет при наведении или активации */
+}
+
+/* Выпадающие списки (например, выбор шрифта) */
+.ql-snow .ql-picker-options {
+  background-color: #2D2D2D;
+  border: 1px solid #444 !important;
+  color: #E0E0E0;
+}
+
+.ql-snow .ql-picker-item:hover {
+  background-color: #444 !important;
+  color: #FFD700 !important;
+}
+
+/* Плейсхолдер */
+.ql-editor::before {
+  color: #888 !important; /* Серый цвет плейсхолдера */
+}
+
+/* Текст в редакторе */
+.ql-editor {
+  color: #E0E0E0; /* Светлый текст */
+}
+
+/* Убираем лишние белые элементы */
+.ql-snow .ql-editor {
+  background-color: #2D2D2D;
+}
+
+/* Подсветка активного форматирования */
+.ql-snow .ql-formats .ql-active {
+  color: #FFD700 !important;
+}

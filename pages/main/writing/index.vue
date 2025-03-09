@@ -4,9 +4,9 @@
         <p class="page-description">Write your essay here and get feedback from AI here!</p>
 
         <div class="writing-editor-container">
-            <PrimeEditor v-model="userEssay" editorStyle="height: 100%"/>
+            <div id="quillEditor" ref="quillEditorRef"></div>
         </div>
-        <AppButton label="Get a feedback!" @click="onSendToAi" :disabled="isLoading" :loading="isLoading"/>
+        <AppButton label="Get a feedback!" type="secondary" @click="onSendToAi" :disabled="isLoading" :loading="isLoading"/>
 
         <div class="aiFeedback-container" v-if="!isResponseHidden">
             <div class="aiFeedback-header">
@@ -20,34 +20,75 @@
         </div>
     </div>
 </template>
+
 <script setup lang="ts">
-import PrimeEditor from 'primevue/editor';
+import Quill, { type QuillOptions } from 'quill';
+import { onMounted, ref } from 'vue';
 
-const store = useWritingStore()
-const toast = useToast()
+const store = useWritingStore();
+const toast = useToast();
+const editorRef = ref(null); // Реф для доступа к DOM-элементу
 
-const {generateFeedback} = store
-const {isLoading} = storeToRefs(store)
-const userEssay = ref()
-const aiFeedback = ref()
-const isResponseHidden = ref(true)
+const { generateFeedback } = store;
+const { isLoading } = storeToRefs(store);
+const userEssay = ref<string>(''); // Храним текст эссе как строку
+const aiFeedback = ref<string>(''); // Храним ответ от AI
+const isResponseHidden = ref(true);
+
+// Переменная для хранения инстанса Quill
+let quillInstance: Quill | null = null;
+
+onMounted(() => {
+    // Инициализация Quill Editor
+    quillInstance = new Quill('#quillEditor', {
+        theme: 'snow',
+        placeholder: 'Write your essay here...',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }],
+                ['bold', 'underline'],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                [{ 'header': [1, 2, false] }],
+            ],
+        },
+    });
+
+    // Отслеживаем изменения в редакторе и обновляем userEssay
+    quillInstance.on('text-change', () => {
+        userEssay.value = quillInstance?.getText().trim() || ''; // Получаем текст без HTML
+    });
+});
 
 function onSendToAi() {
-    isResponseHidden.value = false
+    if (!userEssay.value) {
+        toast.add({
+            life: 3000,
+            severity: 'error',
+            summary: 'Please write an essay before submitting!',
+        });
+        return;
+    }
+
+    isResponseHidden.value = false;
     toast.add({
         life: 3000,
-        severity: "info",
-        summary: "Please wait, AI is giving an answer"
-    })
+        severity: 'info',
+        summary: 'Please wait, AI is giving an answer',
+    });
+
+    // Отправляем текст эссе на проверку
     generateFeedback(userEssay.value)
-        .then((data) => aiFeedback.value = data)
-        .catch((err) => {
-           toast.add({
-                life: 3000,
-                severity: "error",
-                summary: err
-            })
+        .then((data) => {
+            aiFeedback.value = data;
         })
+        .catch((err) => {
+            toast.add({
+                life: 3000,
+                severity: 'error',
+                summary: err.message || 'Error occurred while generating feedback',
+            });
+        });
 }
 </script>
+
 <style src="~/assets/stylus/pages/writing.styl"></style>

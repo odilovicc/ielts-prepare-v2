@@ -3,7 +3,7 @@
         <AppIcon type="material" icon="checklist" class="widget-icon" />
         <h1 class="widget-title">
             Todo list
-            <AppButton icon-type="material" class="widget-todo-add" type="surface" prefix-icon="add"
+            <AppButton icon-type="material" class="widget-todo-add" type="primary" prefix-icon="add"
                 @click="addTodoDialogVisible.open()" />
         </h1>
 

@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      link: [{rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"}]
+      link: [{rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"}],
     },
     pageTransition: {
       name: "page",
