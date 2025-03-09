@@ -18,11 +18,6 @@ export default <RouterConfig>{
                 component: () => import("~/pages/main/reading/index.vue")
             },
             {
-                path: "/listening",
-                name: RouterPaths.LISTENING,
-                component: () => import("~/pages/main/listening/index.vue")
-            },
-            {
                 path: "/writing",
                 name: RouterPaths.WRITING,
                 component: () => import("~/pages/main/writing/index.vue")
@@ -36,6 +31,11 @@ export default <RouterConfig>{
                 path: "/test",
                 name: RouterPaths.DEV_TEST,
                 component: () => import('~/pages/dev/test.vue'),
+            },
+            {
+                path: "/settings",
+                name: RouterPaths.SETTINGS,
+                component: () => import('~/pages/main/settings/index.vue'),
             },
             {
                 path: '/auth/',

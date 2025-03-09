@@ -30,11 +30,6 @@ const userLinks = ref<IAsidebarLinks[]>([
       materialIcon: "book",
     },
     {
-      to: RouterPaths.LISTENING,
-      tooltip: "Listening",
-      materialIcon: "headphones",
-    },
-    {
       to: RouterPaths.WRITING,
       tooltip: "Writing",
       materialIcon: "edit",
@@ -45,7 +40,7 @@ const userLinks = ref<IAsidebarLinks[]>([
       materialIcon: "book_4_spark",
     },
     {
-      to: RouterPaths.DEV_TEST,
+      to: RouterPaths.SETTINGS,
       tooltip: "Settings",
       materialIcon: "settings",
     },

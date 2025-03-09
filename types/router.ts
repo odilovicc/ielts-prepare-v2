@@ -7,5 +7,6 @@ export enum RouterPaths {
     READING = "READING",
     LISTENING = "LISTENING",
     WRITING = "WRITING",
-    AI = "AI"
+    AI = "AI",
+    SETTINGS = "SETTINGS"
 }

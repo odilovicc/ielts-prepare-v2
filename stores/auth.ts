@@ -69,12 +69,23 @@ export const useAuthStore = defineStore("auth", () => {
         });
     }
 
+    async function changeUsername(name: string) {
+        return new Promise((res,rej) => {
+            updateProfile(auth.currentUser, {
+                displayName: name
+            })
+            .then(() => res('Changed successfully'))
+            .catch((err) => rej(err))
+        })
+    }
+
     return {
         onUserRegister,
         onUserLogin,
         isAuthenticated,
         setAuthenticated,
         username,
-        userData
+        userData,
+        changeUsername
     };
 });
